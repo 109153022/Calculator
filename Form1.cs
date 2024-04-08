@@ -22,105 +22,87 @@ namespace Calculator
 
         private void btnOne_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = ""; //這個簡單的判斷式，會預先檢查輸入文字框是不是只有一個「0」？是的話，就先清除掉裡面的數字內容
-            txtNumber.Text += "1";
+            Add_Number("1");
         }
 
         private void btnTwo_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "2";
+            Add_Number("2");
         }
 
         private void btnThree_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "3";
+            Add_Number("3");
         }
 
         private void btnFour_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "4";
+            Add_Number("4");
         }
 
         private void btnFive_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "5";
+            Add_Number("5");
         }
 
         private void btnSix_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "6";
+            Add_Number("6");
         }
 
         private void btnSeven_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "7";
+            Add_Number("7");
         }
 
         private void btnEight_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "8";
+            Add_Number("8");
         }
 
         private void btnNine_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text == "0")
-                txtNumber.Text = "";
-            txtNumber.Text += "9";
+            Add_Number("9");
         }
 
         private void btnZero_Click(object sender, EventArgs e)
         {
+            Add_Number("0");
+        }
+
+        private void Add_Number(string _number)
+        {
             if (txtNumber.Text == "0")
                 txtNumber.Text = "";
-            txtNumber.Text += "0";
+            txtNumber.Text = txtNumber.Text + _number;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 0;
+            Select_Operator(0);
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 1;
-
+            Select_Operator(1);
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 2;
-
+            Select_Operator(2);
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-            firstNumber = Convert.ToSingle(txtNumber.Text);
-            txtNumber.Text = "0";
-            operators = 3;
-
+            Select_Operator(3);
         }
 
+        private void Select_Operator(int _operator)
+        {
+            firstNumber = Convert.ToSingle(txtNumber.Text); //將輸入文字框轉換成浮點數，存入第一個數字的全域變數
+            txtNumber.Text = "0"; //重新將輸入文字框重新設定為0
+            operators = _operator; //選擇「加」號
+        }
         private void btnEqual_Click(object sender, EventArgs e)
         {
             float finalResults = 0f;
@@ -146,6 +128,28 @@ namespace Calculator
             firstNumber = 0f;
             secondNumber = 0f;
             operators = -1;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            string number = txtNumber.Text;
+            int length = number.Length;
+
+            if (length > 0)
+            {
+                number = number.Substring(0, length - 1);
+            }
+            else
+            {
+                number = "0"; // 如果没有数字，将文本设置为0
+            }
+
+            txtNumber.Text = number; // Update the text box with the modified string
+        }
+
+        private void btnPercentage_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)

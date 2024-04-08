@@ -47,6 +47,8 @@ namespace Calculator
             this.btnDot = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnPercentage = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNumber
@@ -62,7 +64,7 @@ namespace Calculator
             this.btnClear.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnClear.Location = new System.Drawing.Point(26, 98);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(252, 46);
+            this.btnClear.Size = new System.Drawing.Size(80, 46);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "AC";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -245,11 +247,35 @@ namespace Calculator
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnPercentage
+            // 
+            this.btnPercentage.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnPercentage.Location = new System.Drawing.Point(198, 100);
+            this.btnPercentage.Name = "btnPercentage";
+            this.btnPercentage.Size = new System.Drawing.Size(80, 46);
+            this.btnPercentage.TabIndex = 18;
+            this.btnPercentage.Text = "%";
+            this.btnPercentage.UseVisualStyleBackColor = true;
+            this.btnPercentage.Click += new System.EventHandler(this.btnPercentage_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnBack.Location = new System.Drawing.Point(112, 98);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(80, 46);
+            this.btnBack.TabIndex = 19;
+            this.btnBack.Text = "<<";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 407);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnPercentage);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDivide);
             this.Controls.Add(this.btnDot);
@@ -295,6 +321,8 @@ namespace Calculator
         private System.Windows.Forms.Button btnDot;
         private System.Windows.Forms.Button btnDivide;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnPercentage;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 
