@@ -114,13 +114,13 @@ namespace Calculator
                     finalResults = firstNumber + secondNumber;
                     break;
                 case 1:
-                    finalResults = firstNumber + secondNumber;
+                    finalResults = firstNumber - secondNumber;
                     break;
                 case 2:
-                    finalResults = firstNumber + secondNumber;
+                    finalResults = firstNumber * secondNumber;
                     break;
                 case 3:
-                    finalResults = firstNumber + secondNumber;
+                    finalResults = firstNumber / secondNumber;
                     break;
             }
             txtNumber.Text = string.Format("{0:0.##########}", finalResults);
@@ -149,7 +149,12 @@ namespace Calculator
 
         private void btnPercentage_Click(object sender, EventArgs e)
         {
-
+            if (txtNumber.Text != "0")
+            {
+                float number = Convert.ToSingle(txtNumber.Text);
+                number /= 100; // 計算百分比
+                txtNumber.Text = string.Format("{0:P2}", number); // 格式化為百分比
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
